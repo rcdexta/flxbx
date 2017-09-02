@@ -1,10 +1,17 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions'
+import React from 'react'
+import {storiesOf} from '@storybook/react'
 
-import App from '../components';
+import {FlexRow} from '../components'
 
-storiesOf('App', module)
-  .add('default', () => (
-    <App onClick={action('clicked')}/>
-  ));
+const Box = ({num}) =>
+  <div style={{backgroundColor: '#eee', padding: 20, margin: 10, fontSize: '16'}}>
+    {num}
+  </div>
+
+storiesOf('Flbx', module).add('Row Wise', () =>
+  <FlexRow>
+    <Box num={1} />
+    <Box num={2} />
+    <Box num={3} />
+  </FlexRow>
+)

@@ -1,6 +1,6 @@
 {
-  "name": "flbx",
-  "description": "A minimalistic flexbox library using styled components",
+  "name": "flxbx",
+  "description": "A minimalistic flexbox library for React",
   "main": "dist/index.js",
   "jsnext:main": "components/index.js",
   "module": "components/index.js",
@@ -25,17 +25,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rcdexta/flbx.git"
+    "url": "https://github.com/rcdexta/flxbx.git"
   },
   "keywords": [
-    "flexbox", "grid"
+    "flexbox",
+    "grid"
   ],
   "author": "RC",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rcdexta/flbx/issues"
+    "url": "https://github.com/rcdexta/flxbx/issues"
   },
-  "homepage": "https://github.com/rcdexta/flbx",
+  "homepage": "https://github.com/rcdexta/flxbx",
   "devDependencies": {
     "@storybook/addon-knobs": "^3.1.2",
     "@storybook/addon-options": "^3.1.2",
@@ -78,12 +79,10 @@
     "webpack": "^3.0.0"
   },
   "dependencies": {
-    "@kadira/storybook-deployer": "^1.0.0",
-    "classnames": "^2.2.3",
-    "invariant": "^2.2.2",
     "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "styled-components": "^2.1.2"
   },
   "config": {
     "commitizen": {

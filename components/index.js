@@ -1,3 +1,3 @@
-import App from './App/App'
+import FlexRow from './lib/FlexRow'
 
-export default App
+export {FlexRow}
