@@ -1,8 +1,10 @@
-import { configure } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
+import {configure, addDecorator} from '@storybook/react'
+import React from 'react'
+import {setOptions} from '@storybook/addon-options'
+
 
 function loadStories() {
-  require('../stories');
+  require('../stories')
 }
 
 setOptions({
@@ -11,4 +13,15 @@ setOptions({
   downPanelInRight: true
 })
 
-configure(loadStories, module);
+const styles = {
+  fontFamily: 'Roboto',
+  fontSize: 14
+};
+const ContainerDecorator = (storyFn) => (
+    <div style={styles}>
+      { storyFn() }
+    </div>
+);
+addDecorator(ContainerDecorator);
+
+configure(loadStories, module)
