@@ -2,19 +2,17 @@
 
 A minimalistic flexbox library for React
 
-
 [![Build Status](https://travis-ci.org/rcdexta/flxbx.svg?branch=master)](https://travis-ci.org/rcdexta/flxbx)
 [![npm version](https://badge.fury.io/js/flxbx.svg)](https://badge.fury.io/js/flxbx)
 
-
 ## Why?
 
-Most react libraries for flexbox are bloated. I wrote this for myself as a utility to contain the minimal directives for flexbox to quickly prototype a custom layout with container containing multiple children each with their own flex attributes
+Most react libraries for flexbox are bloated. I wrote this for myself as a utility to contain the minimal directives for flexbox to quickly prototype a custom layout with a container containing multiple children each with their own flex specifications.
 
 ## Features
 
 * minimalistic and light weight
-* direct wrapper to flexbox specification
+* direct wrapper over flexbox specification [see here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout)
 
 ## Getting Started
 
@@ -32,7 +30,7 @@ yarn add flxbx
 
 ## Usage
 
-`Flxbx` defined two components to describe flexbox specification for parent container as well as child components.
+`Flxbx` defines two components to describe the flexbox specification for parent container as well as child components.
 
 Consider the layout below:
 
@@ -49,10 +47,9 @@ This can be defined using the following DSL. Read through the values assigned to
 </FlxBx>
 ```
 
-To tweak the position of individual child elements, read throught the next example
+To tweak the position of individual child elements, read through the example below
 
 ![alt tag](https://github.com/rcdexta/flxbx/raw/master/assets/child.png)
-
 
 
 ```jsx
