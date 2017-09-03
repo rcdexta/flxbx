@@ -6,7 +6,7 @@ function loadStories() {
 }
 
 setOptions({
-  name: 'Flxbx',
+  name: 'FlxBx',
   url: 'https://github.com/rcdexta/flxbx',
   downPanelInRight: true
 })

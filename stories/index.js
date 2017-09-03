@@ -1,1 +1,2 @@
-import './Main.story'
+import './Parent.story'
+import './Children.story'
