@@ -1,3 +1,3 @@
-import FlexRow from './lib/FlexRow'
+import FlxBx from './lib/Flxbx'
 
-export {FlexRow}
+export default FlxBx

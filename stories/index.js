@@ -1,1 +1,1 @@
-import './App.story'
+import './Main.story'
