@@ -2,10 +2,10 @@
 
 A minimalistic flexbox library for React
 
-```
-	[![Build Status](https://travis-ci.org/rcdexta/flxbx.svg?branch=master)](https://travis-ci.org/rcdexta/flxbx)
+
+[![Build Status](https://travis-ci.org/rcdexta/flxbx.svg?branch=master)](https://travis-ci.org/rcdexta/flxbx)
 [![npm version](https://badge.fury.io/js/flxbx.svg)](https://badge.fury.io/js/flxbx)
-```
+
 
 ## Why?
 
