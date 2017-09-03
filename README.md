@@ -1,43 +1,97 @@
-# react-component-boilerplate
+# flxbx
 
-> A boilerplate to create React components using react-transform-hmr, Babel 6, webpack and SASS
+A minimalistic flexbox library for React
+
+```
+	[![Build Status](https://travis-ci.org/rcdexta/flxbx.svg?branch=master)](https://travis-ci.org/rcdexta/flxbx)
+[![npm version](https://badge.fury.io/js/flxbx.svg)](https://badge.fury.io/js/flxbx)
+```
+
+## Why?
+
+Most react libraries for flexbox are bloated. I wrote this for myself as a utility to contain the minimal directives for flexbox to quickly prototype a custom layout with container containing multiple children each with their own flex attributes
 
 ## Features
 
-1. [Babel 6](http://babeljs.io/) for ES6 and ES7
-1. [style-loader](https://github.com/webpack/style-loader), [sass-loader](https://github.com/jtangelder/sass-loader) and [less-loader](https://github.com/webpack/less-loader) to allow import of stylesheets in plain css, sass and less,
-1. [mocha](https://mochajs.org/) to allow writing unit tests for the project
-1. [react-storybook](https://github.com/kadirahq/react-storybook)
-1. [enzyme](http://airbnb.io/enzyme/index.html) for testing
-1. [travis](https://travis-ci.org/) as CI
-1. [istanbul](https://github.com/gotwarlost/istanbul) for code coverage (ES2015)
-1. [codecov.io](https://codecov.io) for code-coverage reporting
-1. Scripts written for building components(ES5)
-1. [semantic-release](https://github.com/semantic-release/semantic-release) for automated releases following semantic versioning
-1. [commitizen](https://github.com/commitizen/cz-cli) and [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog) for better commit messages.
+* minimalistic and light weight
+* direct wrapper to flexbox specification
 
+## Getting Started
 
-## Getting started
-```
-cd react-component-boilerplate/
-npm install
-npm run storybook
+Use npm or yarn to add this as dependency
+
+```bash
+npm install -save flxbx
 ```
 
-### Scripts
+or
 
-1. `npm run lint` : Lint all js files
-1. `npm run lintfix` : fix linting errors of all js files
-1. `npm run semantic-release` : make a release. Leave it for CI to do.
-1. `npm run storybook`: Start developing by using storybook
-1. `npm run test` : Run tests. tests file should be written as `*.test.js` and using ES2015
-1. `npm run test:watch` : Watch tests while writing
-1. `npm run test:cover` : Show coverage report of your tests
-1. `npm run test:report` : Report test coverage to codecov.io. Leave this for CI
-1. `npm run build`: transpile all ES6 component files into ES5(commonjs) and put it in `dist` directory
-1. `npm run docs`: create static build of storybook in `docs` directory that can be used for github pages
+```bash
+yarn add flxbx
+```
 
-Learn how to write stories [here](https://getstorybook.io/docs/basics/writing-stories)
+## Usage
 
-### License
+`Flxbx` defined two components to describe flexbox specification for parent container as well as child components.
+
+Consider the layout below:
+
+![alt tag](https://github.com/rcdexta/flxbx/raw/master/assets/parent.png)
+
+This can be defined using the following DSL. Read through the values assigned to props to better understand the layout used. Note that `Box` is just an arbitrary component used to visually represent the effect of flex layout and is not part of the library.
+
+```jsx
+<FlxBx reverse={true} justify='center' align='center'>
+	<Box num={1} />
+	<Box num={2} />
+	<Box num={3} />
+	<Box num={4} />
+</FlxBx>
+```
+
+To tweak the position of individual child elements, read throught the next example
+
+![alt tag](https://github.com/rcdexta/flxbx/raw/master/assets/child.png)
+
+
+
+```jsx
+<FlxBx>
+	<FlxEl element={Box} num={1} />
+	<FlxEl element={Box} num={2} align='center' />
+	<FlxEl element={Box} num={3} grow='0.4' />
+	<FlxEl element={Box} num={4} align='flex-end'/>
+</FlxBx>
+```
+
+`FlxEl` takes a component as element prop and passes all other props not relevant to flxbx library.
+
+Please check the examples in the [storybook](https://rcdexta.github.io/flxbx) for detailed documentation about possible prop values
+
+## Documentation
+
+### FlxBx
+
+Parent component to define the container level flex properties
+
+| Name      | Type    | Description (default value)              | Flexbox Reference                        |
+| --------- | ------- | ---------------------------------------- | ---------------------------------------- |
+| direction | string  | How flex items are placed in the flex container defining the main axis and the direction (row) | [flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) |
+| reverse   | boolean | Reverse flex direction (false)           | -                                        |
+| justify   | string  | Defines how the browser distributes space between and around content items along the main axis of their container (flex-start) | [justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) |
+| align     | string  | defines how the browser distributes space between and around flex items along the cross-axis of their container (flex-start) | [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) |
+### FlxEl
+
+Wrapper component for defining flex properties for child elements
+
+| Name    | Type   | Description (default value)              | Flexbox Reference                        |
+| ------- | ------ | ---------------------------------------- | ---------------------------------------- |
+| element | object | Actual component to be rendered as child | -                                        |
+| align   | string | aligns flex items of the current flex line overriding the [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) value (auto) | [align-self](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self) |
+| basis   | string | specifies the flex basis which is the initial **main size** of a flex item (auto) | [flex-basis](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis) |
+| grow    | string | specifies the flex grow factor of a flex item. It specifies what amount of space inside the flex container the item should take up (0) | [flex-grow](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) |
+| shrink  | string | specifies the flex shrink factor of a flex item. Flex items will shrink to fill the container according to the `flex-shrink` number, when the default width of flex items is wider than the flex container (1) | [flex-shrink](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink) |
+
+## License
+
 MIT
