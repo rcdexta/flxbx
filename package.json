@@ -21,7 +21,8 @@
     "test:report": "cat ./coverage/lcov.info | codecov && rm -rf ./coverage",
     "build": "babel components --out-dir dist",
     "docs": "build-storybook -o docs",
-    "commit": "git cz"
+    "commit": "git cz",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "@storybook/addon-options": "^3.2.6",
     "@storybook/cli": "^3.2.8",
     "@storybook/react": "^3.2.8",
+    "@storybook/storybook-deployer": "^2.0.0",
     "autoprefixer": "^7.1.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
